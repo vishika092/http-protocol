@@ -1,0 +1,44 @@
+ http server in nodejs
+
+ one machine can run multiple servers and to differentiate between each server we use port number
+ 
+ if port number is less than 1024  (2^10) are used by OS need admin priveledge  (sudo)
+
+if no port number (only domain)   --> defualt port number is 80  -->  INtranet  --> only people connected to same network can access to this localhost
+
+80  --> http 
+
+
+static IP --> dedicated IP given (will be same always)
+
+NATTING   & port forwarding
+Network Address Translation
+        --> how to access private IP (192 series)
+        --> we need to access router IP (gateway IP) 
+          --> route or  network settings
+        ---> vishika's router will talk to zoheb's router
+        ---> do router configuration and login to router
+        --> then access to zoheb's IP
+        --> that's why we need aws 
+
+
+NAT  
+
+voice over IP (voip) server
+
+
+The Secure Shell (SSH) protocol  --> a method for securely sending commands to a computer over an unsecured network
+
+    --> remotely talk to machine
+    --> by defulat encrypted
+    --> 22 port number
+
+
+router not only runs web protocols
+
+androrat
+
+//-----------------------------------------
+write get to access all data
+for params filtering  (get particular data)
+post new todos

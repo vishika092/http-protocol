@@ -1,0 +1,4 @@
+{
+    key: fs.readFileSync("utils/ssl-keys/private-key.pem"),
+    cert: fs.readFileSync("utils/ssl-keys/certificate.pem")
+}

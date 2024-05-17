@@ -1,0 +1,17 @@
+192.168.36.81:8080/vishika/pali?id=1234&city=delhi
+
+url  --> uniform resource locator 
+        192.168.36.81:8080  is called url  (hostname, port num)
+
+uri  --> uniform resource identifier
+        192.168.36.81:8080/vishika/pali   whole this is uri
+
+urn --> uniform resource name
+    /vishika/pali   (path name)
+
+
+query  params   --> ?id=1234&city=delhi
+    { id: '1234', city: 'delhi' }
+
+
+express is written in http only

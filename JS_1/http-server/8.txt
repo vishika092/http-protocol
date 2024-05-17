@@ -1,0 +1,16 @@
+dns  --> record of ip address
+    --> proxy servers (if valid dns)
+    --> isp dns
+    --> root dns  (single source of truth for entire internet)
+    only 13 root dns are there (all r independent)
+
+
+
+when i type google.com  --> look for ip 
+                        --> in dns records
+                        
+
+tld   and jtld
+
+domain tld tree
+

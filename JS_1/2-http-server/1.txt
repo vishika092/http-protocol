@@ -1,0 +1,16 @@
+tldr  and ens and hns
+
+Middleware : 
+Middleware FUNCTIONS  have access to http request and respond
+
+
+
+//------------------------------------
+payload (information) in respose request cycle is not encrypted
+
+// eavesDropping --> man IN the middle attack
+
+//  so data encrypted  --> only server can decrypt it (to preserve data)
+// ca --> certificate authority --> lets encrypt  --> tool called cetbort  (browser recognised)  --> renew it every 3 months  --> so that we can work on encrypted node.js
+
+//  each 
