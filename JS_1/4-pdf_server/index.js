@@ -16,8 +16,8 @@ let httpServer = http.createServer((req, res) => {
 });
 
 let httpsServer = https.createServer({
-    key : fsSync.readFileSync("./keys/privkey.pem"),
-    cert : fsSync.readFileSync("./keys/fullchain.pem")
+    key : fs.readFileSync("./keys/privkey.pem"),
+    cert : fs.readFileSync("./keys/fullchain.pem")
 }, (req, res) => {
     reportCardDetails(req, res);
 })
