@@ -27,6 +27,8 @@ let server = http.createServer(async (req, res) => {
     console.log(req.headers.host);
     res.setHeader('Content-Type', 'application/json' )  // data in json
 
+    // res.writeHead(200, {'Content-Type': 'application/json'})    //is a method in Node.js used to set the status code and headers of an HTTP response
+
 
     //-------------------------------------------
     // res.end("hello")

@@ -1,14 +1,18 @@
 import http from "http"
-import fs from "fs/promises"
+import {readFile, appendFile} from "fs/promises"
 import https from "https"
 import fsSync from "fs"
 
-const port = 8080;
+const port = 80;
 const httpsport = 443;
 
 // the callback is middle ware
 const httpServer = http.createServer((req, res) => {
-    logRequestDetails(req, res);
+    // redirected to https
+    const httpsUrl = `https://${req.headers.host}${req.url}`;
+    res.writeHead(301, { Location: httpsUrl });
+    res.end();
+
 });
 
 // every packet that goes throug this http server is encrypted
@@ -31,10 +35,10 @@ async function logRequestDetails(req, res){
     let data = `${remoteAddress} ${userAgent} ${dateTime} ${method} ${url} \n`
 
 
-    await fs.appendFile("logs.txt", data);
+    await appendFile("logs.txt", data);
 
     if(url == "/logs"){
-        let data = await fs.readFile("logs.txt", "utf-8");
+        let data = await readFile("logs.txt", "utf-8");
         res.end((data));
     }
     else{
@@ -48,29 +52,15 @@ async function logRequestDetails(req, res){
     
 }
 
+
+
 httpServer.listen(port, ()=> {
     console.log(`Server is running at ${port}`);
 })
 
+ 
 httpsServer.listen(httpsport, ()=> {
     console.log("https server running at ", httpsport);
 })
 
 
-// club the info in one line  and log it into logs.txt
-
-
-// 100  - Continue
-// 101 - Switching Protocols
-// 200 - OK
-// 204 - No Content
-// 301 - moved permenantly / redirection
-// 307 - Temporary Redirect
-// 400 - Bad request
-// 401 - unauthorized
-// 402 - Payment required
-// 403 - forbidden
-// 404 - not found
-// 405 - Method Not Allowed
-// 500 - Internal Server Error
-// 502 - Bad Gateway

@@ -3,7 +3,7 @@ import https from "https"
 import url from 'url';
 import fs from 'fs';
 
-let port = 8080;
+let port = 80;
 let httpsPort = 443;
 
 let students = ["ATANU", "DHINKAR", "HENRY", "UTSAV_KUMAR", "VISHIKA", "SAAD", "ZOHEB"];
@@ -12,9 +12,13 @@ let httpServer = http.createServer((req, res) => {
     let httpsURL = `https://${req.headers.host}/${req.url}`
     res.writeHead(301, {location : httpsURL})
     res.end()
+   
 });
 
-let httpsServer = https.createServer((req, res) => {
+let httpsServer = https.createServer({
+    key : fsSync.readFileSync("./keys/privkey.pem"),
+    cert : fsSync.readFileSync("./keys/fullchain.pem")
+}, (req, res) => {
     reportCardDetails(req, res);
 })
 
@@ -30,6 +34,7 @@ httpsServer.listen(httpsPort, ()=> {
 function reportCardDetails(req, res) {
     const parseUrl = url.parse(req.url, true);
     let studentName = parseUrl.query.studentname;
+    
 
     if (req.method === "GET" && parseUrl.pathname === "/report" && studentName && students.includes(studentName.toUpperCase())) {
         res.statusCode = 200;
